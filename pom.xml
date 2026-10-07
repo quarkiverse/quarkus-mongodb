@@ -14,8 +14,7 @@
     <name>Quarkus Mongodb - Parent</name>
 
     <modules>
-        <module>deployment</module>
-        <module>runtime</module>
+        <module>flyway-mongodb</module>
     </modules>
 
     <scm>
@@ -68,18 +67,6 @@
             </activation>
             <modules>
                 <module>docs</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>it</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>!true</value>
-                </property>
-            </activation>
-            <modules>
-                <module>integration-tests</module>
             </modules>
         </profile>
     </profiles>
