@@ -17,7 +17,7 @@
         <!-- Make sure the doc is built after the other artifacts -->
         <dependency>
             <groupId>io.quarkiverse.mongodb</groupId>
-            <artifactId>quarkus-mongodb-deployment</artifactId>
+            <artifactId>quarkus-flyway-mongodb-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
