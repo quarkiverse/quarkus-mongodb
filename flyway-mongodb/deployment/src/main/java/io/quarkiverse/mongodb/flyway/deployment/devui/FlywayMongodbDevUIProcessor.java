@@ -21,6 +21,7 @@ public class FlywayMongodbDevUIProcessor {
         CardPageBuildItem card = new CardPageBuildItem();
         card.addPage(Page.webComponentPageBuilder()
                 .componentLink("qwc-flyway-mongodb-clients.js")
+                .title("Clients")
                 .dynamicLabelJsonRPCMethodName("getNumberOfClients")
                 .icon("font-awesome-solid:database"));
         return card;
