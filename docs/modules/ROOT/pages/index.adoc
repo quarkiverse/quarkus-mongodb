@@ -1,31 +1,14 @@
-= Quarkus Mongodb
+= Quarkus MongoDB
 
 include::./includes/attributes.adoc[]
 
-TIP: Describe what the extension does here.
+Quarkiverse extensions that integrate MongoDB with Quarkus, complementing the core
+https://quarkus.io/guides/mongodb[MongoDB client extension].
 
-== Installation
+[cols="1,3"]
+|===
+|Extension |Description
 
-To use this extension, add the `io.quarkiverse.mongodb:quarkus-mongodb` dependency to your build file.
-
-With Maven, add the following to your `pom.xml`:
-
-[source,xml,subs=attributes+]
-----
-<dependency>
-    <groupId>io.quarkiverse.mongodb</groupId>
-    <artifactId>quarkus-mongodb</artifactId>
-    <version>{project-version}</version>
-</dependency>
-----
-
-With Gradle, add the following to your `build.gradle`:
-
-[source,gradle,subs=attributes+]
-----
-implementation("io.quarkiverse.mongodb:quarkus-mongodb:{project-version}")
-----
-
-== Usage
-
-TIP: Add a minimal usage example here.
+|xref:flyway-mongodb.adoc[Flyway MongoDB] (`io.quarkiverse.mongodb:quarkus-flyway-mongodb`)
+|Apply Flyway schema migrations to MongoDB using Flyway's Native Connectors.
+|===
