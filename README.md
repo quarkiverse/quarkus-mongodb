@@ -1,8 +1,14 @@
 # Quarkus MongoDB
 
-[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-flyway-mongodb?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
+[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-mongodb-parent?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
 
 Quarkiverse extensions for MongoDB.
+
+## Compatibility
+
+| Quarkus      | Quarkus MongoDB |
+|--------------|-----------------|
+| 3.40.x (LTS) | 0.x             |
 
 ## Flyway MongoDB
 
@@ -12,12 +18,16 @@ Quarkiverse extensions for MongoDB.
 
 Supports `.js` (executed via `mongosh`) and `.json` migrations, multiple named clients, callbacks, a Dev UI panel and a codestart.
 
+### Getting started
+
+Add the dependency, replacing `LATEST_VERSION` with the version shown in the badge above:
+
+```xml
+<dependency>
+    <groupId>io.quarkiverse.mongodb</groupId>
+    <artifactId>quarkus-flyway-mongodb</artifactId>
+    <version>LATEST_VERSION</version>
+</dependency>
+```
+
 Read the full [documentation](https://docs.quarkiverse.io/quarkus-mongodb/dev/flyway-mongodb.html).
-
-### Known workarounds
-
-- A build-time bytecode transform (`ClasspathSqlMigrationScannerEnhancer`) and `QuarkusMongodbPathLocationScanner` replace
-  classpath scanning in `flyway-nc-scanners`, which fails under `QuarkusClassLoader`
-  ([flyway/flyway#4241](https://github.com/flyway/flyway/issues/4241)). Remove both once an upstream fix is released and
-  validated in dev, fast-jar and native modes.
-- The `flyway.version` property in the root `pom.xml` must match the `flyway-core` version managed by the Quarkus BOM.
