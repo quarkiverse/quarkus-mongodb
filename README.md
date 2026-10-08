@@ -1,27 +1,23 @@
-# Quarkus Mongodb
+# Quarkus MongoDB
 
-[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-mongodb?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
+[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-flyway-mongodb?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
 
-## Welcome to Quarkiverse!
+Quarkiverse extensions for MongoDB.
 
-Congratulations and thank you for creating a new Quarkus extension project in Quarkiverse!
+## Flyway MongoDB
 
-Feel free to replace this content with the proper description of your new project and necessary instructions how to use and contribute to it.
+`io.quarkiverse.mongodb:quarkus-flyway-mongodb` applies [Flyway](https://www.red-gate.com/products/flyway/) schema migrations to MongoDB databases configured through the
+[Quarkus MongoDB client](https://quarkus.io/guides/mongodb), using Flyway's
+[Native Connectors for MongoDB](https://documentation.red-gate.com/fd/flyway-native-connectors-mongodb-271583122.html).
 
-You can find the basic info, Quarkiverse policies and conventions in [the Quarkiverse wiki](https://github.com/quarkiverse/quarkiverse/wiki).
+Supports `.js` (executed via `mongosh`) and `.json` migrations, multiple named clients, callbacks, a Dev UI panel and a codestart.
 
-In case you are creating a Quarkus extension project for the first time, please follow [Building My First Extension](https://quarkus.io/guides/building-my-first-extension) guide.
+Read the full [documentation](https://docs.quarkiverse.io/quarkus-mongodb/dev/flyway-mongodb.html).
 
-Other useful articles related to Quarkus extension development can be found under the [Writing Extensions](https://quarkus.io/guides/#writing-extensions) guide category on the [Quarkus.io](https://quarkus.io) website.
+### Known workarounds
 
-Thanks again, good luck and have fun!
-
-## Documentation
-
-The documentation for this extension should be maintained as part of this repository and it is stored in the `docs/` directory.
-
-The layout should follow the [Antora's Standard File and Directory Set](https://docs.antora.org/antora/2.3/standard-directories/).
-
-Once the docs are ready to be published, please open a PR including this repository in the [Quarkiverse Docs Antora playbook](https://github.com/quarkiverse/quarkiverse-docs/blob/main/antora-playbook.yml#L7). See an example [here](https://github.com/quarkiverse/quarkiverse-docs/pull/1)
-
-Your documentation will then be published to the <https://docs.quarkiverse.io/> website.
+- A build-time bytecode transform (`ClasspathSqlMigrationScannerEnhancer`) and `QuarkusMongodbPathLocationScanner` replace
+  classpath scanning in `flyway-nc-scanners`, which fails under `QuarkusClassLoader`
+  ([flyway/flyway#4241](https://github.com/flyway/flyway/issues/4241)). Remove both once an upstream fix is released and
+  validated in dev, fast-jar and native modes.
+- The `flyway.version` property in the root `pom.xml` must match the `flyway-core` version managed by the Quarkus BOM.
