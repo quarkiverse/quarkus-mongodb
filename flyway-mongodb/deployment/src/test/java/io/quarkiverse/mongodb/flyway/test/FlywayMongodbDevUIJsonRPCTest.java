@@ -54,6 +54,7 @@ public class FlywayMongodbDevUIJsonRPCTest extends DevUIJsonRPCTest {
         JsonNode response = super.executeJsonRPCMethod("clean", Map.of("client", "<default>"));
         Assertions.assertNotNull(response);
         Assertions.assertEquals("success", response.get("type").asText());
+        Assertions.assertEquals("Cleaned 1 schema(s)", response.get("message").asText());
     }
 
     @Test

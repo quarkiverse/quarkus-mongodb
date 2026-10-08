@@ -66,7 +66,9 @@ public class FlywayMongodbJsonRpcService {
         try {
             CleanResult result = container.flyway().clean();
             if (result.warnings == null || result.warnings.isEmpty()) {
-                return new ActionResponse("success", "Cleaned " + result.schemasCleaned.size() + " schema(s)");
+                // A database Flyway created is dropped after cleaning and reported only in schemasDropped
+                return new ActionResponse("success",
+                        "Cleaned " + (result.schemasCleaned.size() + result.schemasDropped.size()) + " schema(s)");
             }
             return new ActionResponse("warning", "Clean completed with warnings: " + result.warnings);
         } catch (Exception e) {
