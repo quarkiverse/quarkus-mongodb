@@ -9,7 +9,7 @@
     </parent>
     <groupId>io.quarkiverse.mongodb</groupId>
     <artifactId>quarkus-mongodb-parent</artifactId>
-    <version>999-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
     <name>Quarkus MongoDB - Parent</name>
 
@@ -21,7 +21,8 @@
         <connection>scm:git:git@github.com:quarkiverse/quarkus-mongodb.git</connection>
         <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-mongodb.git</developerConnection>
         <url>https://github.com/quarkiverse/quarkus-mongodb</url>
-    </scm>
+      <tag>0.1.0</tag>
+  </scm>
 
     <properties>
         <!-- quarkiverse-parent defaults to 21, but Quarkus 3.x still supports Java 17 -->
