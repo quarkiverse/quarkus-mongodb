@@ -8,12 +8,63 @@
         <version>999-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-flyway-mongodb</artifactId>
-    <name>Quarkus Flyway Mongodb - Runtime</name>
+    <name>Quarkus MongoDB - Flyway MongoDB - Runtime</name>
+    <description>Apply Flyway database migrations to MongoDB</description>
 
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
+            <artifactId>quarkus-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-mongodb-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-nc-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-nc-scanners</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-nc-callbacks</artifactId>
+        </dependency>
+        <!-- NC verb extensions — required for migrate/clean/validate/repair/baseline/info -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-info</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-validate</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-migrate</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-clean</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-baseline</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-verb-repair</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>nativeimage</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -31,6 +82,12 @@
                         </goals>
                         <configuration>
                             <deployment>${project.groupId}:${project.artifactId}-deployment:${project.version}</deployment>
+                            <capabilities>
+                                <provides>io.quarkiverse.mongodb.flyway</provides>
+                            </capabilities>
+                            <conditionalDevDependencies>
+                                <artifact>${project.groupId}:${project.artifactId}-dev:${project.version}</artifact>
+                            </conditionalDevDependencies>
                         </configuration>
                     </execution>
                 </executions>
@@ -48,6 +105,26 @@
                                 </path>
                             </annotationProcessorPaths>
                             <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-codestart-jar</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classesDirectory>${project.basedir}/src/main</classesDirectory>
+                            <includes>
+                                <include>codestarts/**</include>
+                            </includes>
+                            <classifier>codestarts</classifier>
+                            <skipIfEmpty>true</skipIfEmpty>
                         </configuration>
                     </execution>
                 </executions>

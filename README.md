@@ -1,27 +1,33 @@
-# Quarkus Mongodb
+# Quarkus MongoDB
 
-[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-mongodb?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
+[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.mongodb/quarkus-mongodb-parent?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.mongodb/quarkus-mongodb-parent)
 
-## Welcome to Quarkiverse!
+Quarkiverse extensions for MongoDB.
 
-Congratulations and thank you for creating a new Quarkus extension project in Quarkiverse!
+## Compatibility
 
-Feel free to replace this content with the proper description of your new project and necessary instructions how to use and contribute to it.
+| Quarkus      | Quarkus MongoDB |
+|--------------|-----------------|
+| 3.40.x (LTS) | 0.x             |
 
-You can find the basic info, Quarkiverse policies and conventions in [the Quarkiverse wiki](https://github.com/quarkiverse/quarkiverse/wiki).
+## Flyway MongoDB
 
-In case you are creating a Quarkus extension project for the first time, please follow [Building My First Extension](https://quarkus.io/guides/building-my-first-extension) guide.
+`io.quarkiverse.mongodb:quarkus-flyway-mongodb` applies [Flyway](https://www.red-gate.com/products/flyway/) schema migrations to MongoDB databases configured through the
+[Quarkus MongoDB client](https://quarkus.io/guides/mongodb), using Flyway's
+[Native Connectors for MongoDB](https://documentation.red-gate.com/fd/flyway-native-connectors-mongodb-271583122.html).
 
-Other useful articles related to Quarkus extension development can be found under the [Writing Extensions](https://quarkus.io/guides/#writing-extensions) guide category on the [Quarkus.io](https://quarkus.io) website.
+Supports `.js` (executed via `mongosh`) and `.json` migrations, multiple named clients, callbacks, a Dev UI panel and a codestart.
 
-Thanks again, good luck and have fun!
+### Getting started
 
-## Documentation
+Add the dependency, replacing `LATEST_VERSION` with the version shown in the badge above:
 
-The documentation for this extension should be maintained as part of this repository and it is stored in the `docs/` directory.
+```xml
+<dependency>
+    <groupId>io.quarkiverse.mongodb</groupId>
+    <artifactId>quarkus-flyway-mongodb</artifactId>
+    <version>LATEST_VERSION</version>
+</dependency>
+```
 
-The layout should follow the [Antora's Standard File and Directory Set](https://docs.antora.org/antora/2.3/standard-directories/).
-
-Once the docs are ready to be published, please open a PR including this repository in the [Quarkiverse Docs Antora playbook](https://github.com/quarkiverse/quarkiverse-docs/blob/main/antora-playbook.yml#L7). See an example [here](https://github.com/quarkiverse/quarkiverse-docs/pull/1)
-
-Your documentation will then be published to the <https://docs.quarkiverse.io/> website.
+Read the full [documentation](https://docs.quarkiverse.io/quarkus-mongodb/dev/flyway-mongodb.html).

@@ -1,0 +1,820 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[.header-title]##Configuration property##
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-enabled]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-enabled[`+++quarkus.flyway-mongodb.enabled+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.enabled+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+Whether Flyway-MongoDB is enabled *during the build*.
+
+If Flyway-MongoDB is disabled, the Flyway-MongoDB beans won't be created and Flyway won't be usable.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++true+++`
+
+h|[[quarkus-flyway-mongodb_section_quarkus-flyway-mongodb]] [.section-name.section-level0]##link:#quarkus-flyway-mongodb_section_quarkus-flyway-mongodb[Per-MongoDB-client configuration]##
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-locations]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-locations[`+++quarkus.flyway-mongodb.locations+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.locations+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".locations+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".locations+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Comma-separated list of locations to scan recursively for migrations. The location type is determined by its prefix.
+
+Unprefixed locations or locations starting with classpath: point to a package on the classpath and may contain both JavaScript and JSON-based migrations.
+
+Locations starting with filesystem: point to a directory on the filesystem, may only contain migration scripts and are only scanned recursively down non-hidden directories.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_LOCATIONS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_LOCATIONS+++`
+endif::add-copy-button-to-env-var[]
+--
+|list of string
+|`+++db/migration+++`
+
+a|icon:lock[title=Fixed at build time] [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-migration-suffixes]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-migration-suffixes[`+++quarkus.flyway-mongodb.migration-suffixes+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.migration-suffixes+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".migration-suffixes+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".migration-suffixes+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Comma-separated list of file suffixes to recognize as migration scripts. Defaults to `.js`. Set to `.json` to use JSON-format migrations instead; JSON migrations do not require `mongosh` to be installed. The `flyway-database-nc-mongodb` connector does not support mixing `.js` and `.json` migrations in the same project.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_MIGRATION_SUFFIXES+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_MIGRATION_SUFFIXES+++`
+endif::add-copy-button-to-env-var[]
+--
+|list of string
+|`+++.js+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-active]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-active[`+++quarkus.flyway-mongodb.active+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.active+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".active+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".active+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Flag to activate/deactivate Flyway for a specific MongoDB client at runtime.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_ACTIVE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_ACTIVE+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++'true' if the MongoDB client is active; 'false' otherwise+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-connect-retries]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-connect-retries[`+++quarkus.flyway-mongodb.connect-retries+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.connect-retries+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".connect-retries+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".connect-retries+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The maximum number of retries when attempting to connect to the database.
+
+After each failed attempt, Flyway will wait up to the configured `connect-retries-interval` duration before attempting to connect again, up to the maximum number of times specified by connectRetries.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_CONNECT_RETRIES+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_CONNECT_RETRIES+++`
+endif::add-copy-button-to-env-var[]
+--
+|int
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-connect-retries-interval]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-connect-retries-interval[`+++quarkus.flyway-mongodb.connect-retries-interval+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.connect-retries-interval+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".connect-retries-interval+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".connect-retries-interval+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The maximum time between retries when attempting to connect to the database.
+
+This will cap the interval between connect retries to the value provided.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_CONNECT_RETRIES_INTERVAL+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_CONNECT_RETRIES_INTERVAL+++`
+endif::add-copy-button-to-env-var[]
+--
+|link:https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html[Duration] link:#duration-note-anchor-quarkus-flyway-mongodb_quarkus-flyway-mongodb[icon:question-circle[title=More information about the Duration format]]
+|`+++120 seconds+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-connection-string]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-connection-string[`+++quarkus.flyway-mongodb.connection-string+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.connection-string+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".connection-string+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".connection-string+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Optional override for the connection string Flyway uses. Defaults to the corresponding `quarkus.mongodb.<client>.connection-string`.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_CONNECTION_STRING+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_CONNECTION_STRING+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-database]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-database[`+++quarkus.flyway-mongodb.database+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.database+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".database+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".database+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Target database for migrations. Defaults to the corresponding `quarkus.mongodb.<client>.database`.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_DATABASE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_DATABASE+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-collection]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-collection[`+++quarkus.flyway-mongodb.collection+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.collection+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".collection+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".collection+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Schema history collection name.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_COLLECTION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_COLLECTION+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-migration-prefix]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-migration-prefix[`+++quarkus.flyway-mongodb.migration-prefix+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.migration-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".migration-prefix+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".migration-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The file name prefix for versioned migrations. Versioned migrations have the following file name structure: prefixVERSIONseparatorDESCRIPTIONsuffix, which using the defaults translates to V1.1__My_description.js
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_MIGRATION_PREFIX+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_MIGRATION_PREFIX+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-repeatable-migration-prefix]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-repeatable-migration-prefix[`+++quarkus.flyway-mongodb.repeatable-migration-prefix+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.repeatable-migration-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".repeatable-migration-prefix+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".repeatable-migration-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The file name prefix for repeatable migrations. Repeatable migrations have the following file name structure: prefixSeparatorDESCRIPTIONsuffix, which using the defaults translates to R__My_description.js
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_REPEATABLE_MIGRATION_PREFIX+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_REPEATABLE_MIGRATION_PREFIX+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-clean-at-start]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-clean-at-start[`+++quarkus.flyway-mongodb.clean-at-start+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.clean-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".clean-at-start+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".clean-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute Flyway clean command automatically when the application starts, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_CLEAN_AT_START+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_CLEAN_AT_START+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++`false`+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-clean-disabled]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-clean-disabled[`+++quarkus.flyway-mongodb.clean-disabled+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.clean-disabled+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".clean-disabled+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".clean-disabled+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to prevent Flyway clean operations, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_CLEAN_DISABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_CLEAN_DISABLED+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-migrate-at-start]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-migrate-at-start[`+++quarkus.flyway-mongodb.migrate-at-start+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.migrate-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".migrate-at-start+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".migrate-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute Flyway automatically when the application starts, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_MIGRATE_AT_START+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_MIGRATE_AT_START+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-repair-at-start]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-repair-at-start[`+++quarkus.flyway-mongodb.repair-at-start+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.repair-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".repair-at-start+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".repair-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute a Flyway repair command when the application starts, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_REPAIR_AT_START+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_REPAIR_AT_START+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-at-start]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-at-start[`+++quarkus.flyway-mongodb.validate-at-start+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.validate-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".validate-at-start+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".validate-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute a Flyway validate command when the application starts, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_VALIDATE_AT_START+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_VALIDATE_AT_START+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-at-start-clean-on-validation-error]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-at-start-clean-on-validation-error[`+++quarkus.flyway-mongodb.validate-at-start.clean-on-validation-error+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.validate-at-start.clean-on-validation-error+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".validate-at-start.clean-on-validation-error+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".validate-at-start.clean-on-validation-error+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to automatically execute a Flyway clean command when a validation error occurs at start, false otherwise.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_VALIDATE_AT_START_CLEAN_ON_VALIDATION_ERROR+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_VALIDATE_AT_START_CLEAN_ON_VALIDATION_ERROR+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-on-migrate]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-on-migrate[`+++quarkus.flyway-mongodb.baseline-on-migrate+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.baseline-on-migrate+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".baseline-on-migrate+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".baseline-on-migrate+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute Flyway baseline before migrations. This flag is ignored if the flyway_schema_history collection already exists. Note that this will not automatically call migrate, you must either enable baselineAtStart or programmatically call flyway.migrate().
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_BASELINE_ON_MIGRATE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_BASELINE_ON_MIGRATE+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-at-start]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-at-start[`+++quarkus.flyway-mongodb.baseline-at-start+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.baseline-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".baseline-at-start+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".baseline-at-start+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+true to execute Flyway baseline automatically when the application starts. This flag is ignored if the flyway_schema_history collection already exists. Note: this does not also call migrate; pair with `migrate-at-start` if needed.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_BASELINE_AT_START+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_BASELINE_AT_START+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-version]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-version[`+++quarkus.flyway-mongodb.baseline-version+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.baseline-version+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".baseline-version+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".baseline-version+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The initial baseline version.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_BASELINE_VERSION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_BASELINE_VERSION+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-description]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-baseline-description[`+++quarkus.flyway-mongodb.baseline-description+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.baseline-description+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".baseline-description+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".baseline-description+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+The description to tag an existing schema with when executing baseline.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_BASELINE_DESCRIPTION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_BASELINE_DESCRIPTION+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-on-migrate]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-on-migrate[`+++quarkus.flyway-mongodb.validate-on-migrate+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.validate-on-migrate+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".validate-on-migrate+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".validate-on-migrate+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Whether to automatically call validate when performing a migration.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_VALIDATE_ON_MIGRATE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_VALIDATE_ON_MIGRATE+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++true+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-out-of-order]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-out-of-order[`+++quarkus.flyway-mongodb.out-of-order+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.out-of-order+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".out-of-order+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".out-of-order+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Allows migrations to be run "out of order".
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_OUT_OF_ORDER+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_OUT_OF_ORDER+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-missing-migrations]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-missing-migrations[`+++quarkus.flyway-mongodb.ignore-missing-migrations+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.ignore-missing-migrations+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".ignore-missing-migrations+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".ignore-missing-migrations+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Ignore missing migrations when reading the history table. When set to true migrations from older versions present in the history table but absent in the configured locations will be ignored (and logged as a warning), when false (the default) the validation step will fail.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_IGNORE_MISSING_MIGRATIONS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_IGNORE_MISSING_MIGRATIONS+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-future-migrations]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-future-migrations[`+++quarkus.flyway-mongodb.ignore-future-migrations+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.ignore-future-migrations+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".ignore-future-migrations+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".ignore-future-migrations+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Ignore future migrations when reading the history table. When set to true migrations from newer versions present in the history table but absent in the configured locations will be ignored (and logged as a warning), when false (the default) the validation step will fail.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_IGNORE_FUTURE_MIGRATIONS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_IGNORE_FUTURE_MIGRATIONS+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholders-placeholder-key]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholders-placeholder-key[`+++quarkus.flyway-mongodb.placeholders."placeholder-key"+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.placeholders."placeholder-key"+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".placeholders."placeholder-key"+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".placeholders."placeholder-key"+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Sets the placeholders to replace in migration scripts.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDERS__PLACEHOLDER_KEY_+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDERS__PLACEHOLDER_KEY_+++`
+endif::add-copy-button-to-env-var[]
+--
+|Map<String,String>
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholder-prefix]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholder-prefix[`+++quarkus.flyway-mongodb.placeholder-prefix+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.placeholder-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".placeholder-prefix+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".placeholder-prefix+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Prefix of every placeholder (default: $++{++ )
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDER_PREFIX+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDER_PREFIX+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholder-suffix]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-placeholder-suffix[`+++quarkus.flyway-mongodb.placeholder-suffix+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.placeholder-suffix+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".placeholder-suffix+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".placeholder-suffix+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Suffix of every placeholder (default: ++}++ )
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDER_SUFFIX+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_PLACEHOLDER_SUFFIX+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-migration-naming]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-validate-migration-naming[`+++quarkus.flyway-mongodb.validate-migration-naming+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.validate-migration-naming+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".validate-migration-naming+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".validate-migration-naming+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Whether to validate migrations and callbacks whose scripts do not obey the correct naming convention. A failure can be useful to check that errors such as case sensitivity in migration prefixes have been corrected.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_VALIDATE_MIGRATION_NAMING+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_VALIDATE_MIGRATION_NAMING+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-migration-patterns]] [.property-path]##link:#quarkus-flyway-mongodb_quarkus-flyway-mongodb-ignore-migration-patterns[`+++quarkus.flyway-mongodb.ignore-migration-patterns+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb.ignore-migration-patterns+++[]
+endif::add-copy-button-to-config-props[]
+
+
+`+++quarkus.flyway-mongodb."mongo-client-name".ignore-migration-patterns+++`
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.flyway-mongodb."mongo-client-name".ignore-migration-patterns+++[]
+endif::add-copy-button-to-config-props[]
+
+[.description]
+--
+Ignore migrations during validate and repair according to a given list of patterns. When this configuration is set, the ignoreFutureMigrations and ignoreMissingMigrations settings are ignored. Patterns are comma separated.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_FLYWAY_MONGODB_IGNORE_MIGRATION_PATTERNS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_FLYWAY_MONGODB_IGNORE_MIGRATION_PATTERNS+++`
+endif::add-copy-button-to-env-var[]
+--
+|list of string
+|
+
+
+|===
+
+ifndef::no-duration-note[]
+[NOTE]
+[id=duration-note-anchor-quarkus-flyway-mongodb_quarkus-flyway-mongodb]
+.About the Duration format
+====
+To write duration values, use the standard `java.time.Duration` format.
+See the link:https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)[Duration#parse() Java API documentation] for more information.
+
+You can also use a simplified format, starting with a number:
+
+* If the value is only a number, it represents time in seconds.
+* If the value is a number followed by `ms`, it represents time in milliseconds.
+
+In other cases, the simplified format is translated to the `java.time.Duration` format for parsing:
+
+* If the value is a number followed by `h`, `m`, or `s`, it is prefixed with `PT`.
+* If the value is a number followed by `d`, it is prefixed with `P`.
+====
+endif::no-duration-note[]

@@ -7,11 +7,12 @@
     <version>999-SNAPSHOT</version>
   </parent>
   <artifactId>quarkus-flyway-mongodb-parent</artifactId>
-  <name>Quarkus Flyway Mongodb - Parent</name>
+  <name>Quarkus MongoDB - Flyway MongoDB - Parent</name>
   <packaging>pom</packaging>
   <modules>
-    <module>deployment</module>
     <module>runtime</module>
+    <module>runtime-dev</module>
+    <module>deployment</module>
   </modules>
   <profiles>
     <profile>

@@ -8,7 +8,7 @@
         <version>999-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-flyway-mongodb-integration-tests</artifactId>
-    <name>Quarkus Flyway Mongodb - Integration Tests</name>
+    <name>Quarkus MongoDB - Flyway MongoDB - Integration Tests</name>
 
     <properties>
         <skipITs>true</skipITs>
@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.mongodb</groupId>
@@ -32,6 +32,11 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers-mongodb</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
