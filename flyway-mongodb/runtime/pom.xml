@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.quarkiverse.mongodb</groupId>
         <artifactId>quarkus-flyway-mongodb-parent</artifactId>
-        <version>0.1.0</version>
+        <version>999-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-flyway-mongodb</artifactId>
     <name>Quarkus MongoDB - Flyway MongoDB - Runtime</name>

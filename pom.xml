@@ -9,7 +9,7 @@
     </parent>
     <groupId>io.quarkiverse.mongodb</groupId>
     <artifactId>quarkus-mongodb-parent</artifactId>
-    <version>0.1.0</version>
+    <version>999-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Quarkus MongoDB - Parent</name>
 
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:quarkiverse/quarkus-mongodb.git</connection>
         <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-mongodb.git</developerConnection>
         <url>https://github.com/quarkiverse/quarkus-mongodb</url>
-      <tag>0.1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
