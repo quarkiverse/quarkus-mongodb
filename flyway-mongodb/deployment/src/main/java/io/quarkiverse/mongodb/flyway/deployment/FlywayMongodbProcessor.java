@@ -211,7 +211,6 @@ public class FlywayMongodbProcessor {
     @Record(ExecutionTime.RUNTIME_INIT)
     @Consume(SyntheticBeansRuntimeInitBuildItem.class)
     ServiceStartBuildItem startActions(FlywayMongodbRecorder recorder,
-            MigrationStateBuildItem migrationState,
             MongoClientsBuildItem mongoClients,
             BuildProducer<InitTaskCompletedBuildItem> initTaskCompleted) {
         for (MongoClientBuildItem mongoClient : mongoClients.getMongoClients()) {
