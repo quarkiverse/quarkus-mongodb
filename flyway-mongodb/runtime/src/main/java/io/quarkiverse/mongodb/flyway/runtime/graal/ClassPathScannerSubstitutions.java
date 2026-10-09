@@ -66,16 +66,22 @@ public final class ClassPathScannerSubstitutions {
 
     /**
      * quarkus-flyway ships the same substitutions; GraalVM rejects duplicate substitutions of the same target.
+     * https://github.com/quarkusio/quarkus/pull/57204 moves them from quarkus-flyway to quarkus-flyway-common.
      */
     static final class IsQuarkusFlywayAbsent implements BooleanSupplier {
 
         @Override
         public boolean getAsBoolean() {
+            return !isPresent("io.quarkus.flyway.runtime.graal.ClassPathScannerSubstitutions")
+                    && !isPresent("io.quarkus.flyway.common.graal.ClassPathScannerSubstitutions");
+        }
+
+        private static boolean isPresent(String className) {
             try {
-                Class.forName("io.quarkus.flyway.runtime.graal.ClassPathScannerSubstitutions");
-                return false;
-            } catch (ClassNotFoundException e) {
+                Class.forName(className);
                 return true;
+            } catch (ClassNotFoundException e) {
+                return false;
             }
         }
     }
