@@ -49,7 +49,11 @@ public final class FlywayMongodbCreator {
         configure.connectRetriesInterval(
                 (int) runtimeConfig.connectRetriesInterval().orElse(DEFAULT_CONNECT_RETRIES_INTERVAL).toSeconds());
 
-        configure.sqlMigrationSuffixes(buildTimeConfig.migrationSuffixes().toArray(EMPTY_ARRAY));
+        List<String> migrationSuffixes = buildTimeConfig.migrationSuffixes();
+        configure.sqlMigrationSuffixes(migrationSuffixes.toArray(EMPTY_ARRAY));
+        if (javaScriptMigrationSuffix(migrationSuffixes)) {
+            configure.executeInTransaction(false);
+        }
         runtimeConfig.migrationPrefix().ifPresent(configure::sqlMigrationPrefix);
         runtimeConfig.repeatableMigrationPrefix().ifPresent(configure::repeatableSqlMigrationPrefix);
 
@@ -95,5 +99,10 @@ public final class FlywayMongodbCreator {
         }
 
         return configure.load();
+    }
+
+    private static boolean javaScriptMigrationSuffix(List<String> suffixes) {
+        return !suffixes.isEmpty()
+                && suffixes.stream().allMatch(FlywayMongodbClientBuildTimeConfig.DEFAULT_MIGRATION_SUFFIX::equals);
     }
 }
