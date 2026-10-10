@@ -129,6 +129,15 @@ one format and configure `migration-suffixes` accordingly:
 quarkus.flyway-mongodb.migration-suffixes=.json
 ----
 
+JavaScript migrations cannot run in a transaction, because the connector
+executes each `.js` script through `mongosh`. When a client's migration
+suffix is `.js` (the default), this extension creates that client's Flyway
+instance with `executeInTransaction` set to `false`. Flyway otherwise logs
+a warning on every `.js` migration while the flag stays at its default of
+`true`. `.json` migrations keep that default and can run in a transaction
+on a replica set. A `FlywayMongodbConfigurationCustomizer` is applied
+afterwards and can set the flag back to `true`.
+
 [source,javascript]
 ----
 db.createCollection("users");
