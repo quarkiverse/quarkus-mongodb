@@ -413,10 +413,6 @@ MongoDB, which has no schema-creation step.
 * The extension wraps the community-edition `flyway-database-nc-mongodb`
   connector. Flyway's commercial `flyway-database-mongodb` (Teams) is not
   used.
-* MongoDB with Panache is not ordered after the migrations, so Panache may
-  start before the migrations at startup have finished. This ordering will be
-  added once the extension moves to a Quarkus release that includes
-  https://github.com/quarkusio/quarkus/pull/57204[quarkusio/quarkus#57204].
 
 [[quarkus-flyway-mongodb_configuration]]
 == Configuration Reference

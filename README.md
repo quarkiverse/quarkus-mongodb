@@ -9,6 +9,9 @@ Quarkiverse extensions for MongoDB.
 | Quarkus      | Quarkus MongoDB |
 |--------------|-----------------|
 | 3.40.x (LTS) | 0.x             |
+| 4.0.x        | 1.x             |
+
+Quarkus 3.40 users stay on the `0.x` branch.
 
 ## Flyway MongoDB
 
