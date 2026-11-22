@@ -1,5 +1,6 @@
 package io.quarkiverse.mongodb.flyway.deployment;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -48,6 +49,7 @@ import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveHierarchyBuildItem;
 import io.quarkus.mongodb.deployment.MongoUnremovableClientsBuildItem;
 import io.quarkus.mongodb.deployment.spi.MongoClientBuildItem;
+import io.quarkus.mongodb.deployment.spi.MongoClientSchemaReadyBuildItem;
 import io.quarkus.mongodb.deployment.spi.MongoClientsBuildItem;
 import io.quarkus.mongodb.runtime.MongoConfig;
 
@@ -211,12 +213,22 @@ public class FlywayMongodbProcessor {
     @Record(ExecutionTime.RUNTIME_INIT)
     @Consume(SyntheticBeansRuntimeInitBuildItem.class)
     ServiceStartBuildItem startActions(FlywayMongodbRecorder recorder,
+            MigrationStateBuildItem migrationState,
             MongoClientsBuildItem mongoClients,
-            BuildProducer<InitTaskCompletedBuildItem> initTaskCompleted) {
+            BuildProducer<InitTaskCompletedBuildItem> initTaskCompleted,
+            BuildProducer<MongoClientSchemaReadyBuildItem> schemaReady) {
+        List<String> clientsWithMigrations = new ArrayList<>();
         for (MongoClientBuildItem mongoClient : mongoClients.getMongoClients()) {
-            recorder.doStartActions(mongoClient.getName());
+            String clientName = mongoClient.getName();
+            recorder.doStartActions(clientName);
+            MigrationStateBuildItem.MigrationState clientState = migrationState.state
+                    .getOrDefault(clientName, new MigrationStateBuildItem.MigrationState(Set.of(), Set.of()));
+            if (!clientState.migrations().isEmpty()) {
+                clientsWithMigrations.add(clientName);
+            }
         }
         initTaskCompleted.produce(new InitTaskCompletedBuildItem("flyway-mongodb"));
+        schemaReady.produce(new MongoClientSchemaReadyBuildItem(clientsWithMigrations));
         return new ServiceStartBuildItem("flyway-mongodb");
     }
 

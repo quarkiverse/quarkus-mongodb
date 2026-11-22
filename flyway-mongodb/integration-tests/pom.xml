@@ -24,6 +24,12 @@
             <artifactId>quarkus-flyway-mongodb</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Keeps quarkus-flyway on the classpath so the native build checks the shared
+             Graal substitutions from quarkus-flyway-common. JDBC Flyway stays disabled. -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-flyway</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit</artifactId>
