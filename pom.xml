@@ -27,7 +27,7 @@
     <properties>
         <quarkus.version>4.0.0</quarkus.version>
         <!-- Must match the flyway-core version managed by the Quarkus BOM -->
-        <flyway.version>13.12.2</flyway.version>
+        <flyway.version>13.13.0</flyway.version>
         <assertj.version>3.27.7</assertj.version>
     </properties>
 
